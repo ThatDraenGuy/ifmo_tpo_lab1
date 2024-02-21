@@ -29,11 +29,20 @@ jobs:
         cache: maven
     - name: Test with Maven
       run: mvn -B test --file pom.xml
-    - name: upload-coverage-report-artifact
-      uses: actions/upload-artifact@v4
+    - uses: nelonoel/branch-name@v1.0.1
+    - name: Deploy coverage report
+      uses: jsmrcaga/action-netlify-deploy@master
       with:
-        name: coverage-report
-        path: aggregate-report/target/site/jacoco-aggregate
+        NETLIFY_AUTH_TOKEN: nfp_D5vL9v492PdjYhMACDZsz364HLtK5oXD64d9
+        NETLIFY_SITE_ID: a44c5e7d-7f60-44b7-b756-b921b9754aa9
+        deploy_alias: ${{ env.BRANCH_NAME }}
+    - name: Status check
+      uses: Sibz/github-status-action@v1.1.1
+      with:
+        authToken: ${{ secrets.GITHUB_TOKEN }}
+        context: Netlify preview
+        state: success
+        target_url: ${{ env.NETLIFY_PREVIEW_URL }}
     - name: jacoco-reporter
       uses: PavanMudigonda/jacoco-reporter@v4.9
       with:
