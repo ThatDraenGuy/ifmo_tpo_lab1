@@ -29,6 +29,11 @@ jobs:
         cache: maven
     - name: Test with Maven
       run: mvn -B test --file pom.xml
+    - name: upload-coverage-report-artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: aggregate-report/target/site/jacoco-aggregate
     - name: jacoco-reporter
       uses: PavanMudigonda/jacoco-reporter@v4.9
       with:
@@ -40,8 +45,3 @@ jobs:
         minimum_coverage: 90
         fail_below_threshold: true
         publish_only_summary: true
-    - name: upload-coverage-report-artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage-report
-        path: aggregate-report/target/site/jacoco-aggregate
