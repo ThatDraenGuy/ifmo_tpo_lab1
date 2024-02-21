@@ -2,10 +2,16 @@ package thatdraenguy;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class HashTableTest {
+    @Test
+    public void illegalBucketNumber() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new HashTable<String>(0);
+        });
+    }
+
     @Test
     public void insertion() {
         HashTable<String> table = new HashTable<>(5);
