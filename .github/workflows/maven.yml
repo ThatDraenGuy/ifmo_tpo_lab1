@@ -46,3 +46,6 @@ jobs:
         context: Netlify preview
         state: success
         target_url: ${{ env.NETLIFY_PREVIEW_URL }}
+    - name: Publish Test Report
+      if: success() || failure()
+      uses: scacap/action-surefire-report@v1
