@@ -35,6 +35,8 @@ jobs:
       with:
         NETLIFY_AUTH_TOKEN: nfp_D5vL9v492PdjYhMACDZsz364HLtK5oXD64d9
         NETLIFY_SITE_ID: a44c5e7d-7f60-44b7-b756-b921b9754aa9
+        build_directory: aggregate-report/target/site/jacoco-aggregate
+        build_command: echo "Deploying..."
         deploy_alias: ${{ env.BRANCH_NAME }}
     - name: Status check
       uses: Sibz/github-status-action@v1.1.1
