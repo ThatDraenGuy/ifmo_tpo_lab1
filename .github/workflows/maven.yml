@@ -10,12 +10,12 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "algo_tests" ]
   pull_request:
     branches: [ "master" ]
 
 jobs:
-  build:
+  run-tests:
 
     runs-on: ubuntu-latest
 
@@ -29,3 +29,15 @@ jobs:
         cache: maven
     - name: Test with Maven
       run: mvn -B test --file pom.xml
+    - name: jacoco-reporter-algorithm
+      uses: PavanMudigonda/jacoco-reporter@v4.9
+      with:
+        coverage_results_path: algorithm/target/site/jacoco/jacoco.xml
+        coverage_report_name: Coverage
+        coverage_report_title: Algorithm Module Coverage Report
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        skip_check_run: false
+        minimum_coverage: 90
+        fail_below_threshold: true
+        publish_only_summary: false
+
