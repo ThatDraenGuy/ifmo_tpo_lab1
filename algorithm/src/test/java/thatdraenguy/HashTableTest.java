@@ -24,17 +24,10 @@ public class HashTableTest {
 
     @Test
     public void collisionsInsertion() {
-        String[] names = new String[] {
-                "Oleg Haha",
-                "dmitrik",
-                "shipu",
-                "big L",
-                "dmitri chef",
-                "furik"
-        };
+        String[] names = new String[] { "Oleg Haha", "dmitrik", "shipu", "big L", "dmitri chef", "furik" };
         // Number of buckets = 5, inserting 6 elements will guarantee a collision
         HashTable<String> table = new HashTable<>(5);
-        for (int i = 0; i < 6; i ++) {
+        for (int i = 0; i < 6; i++) {
             assertNull(table.put(i, names[i]));
             for (int j = 0; j <= i; j++) {
                 assertEquals(names[j], table.get(j));
