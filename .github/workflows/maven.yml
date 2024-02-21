@@ -29,10 +29,10 @@ jobs:
         cache: maven
     - name: Test with Maven
       run: mvn -B test --file pom.xml
-    - name: jacoco-reporter-algorithm
+    - name: jacoco-reporter
       uses: PavanMudigonda/jacoco-reporter@v4.9
       with:
-        coverage_results_path: algorithm/target/site/jacoco/jacoco.xml
+        coverage_results_path: aggregate-report/target/site/jacoco/jacoco.xml
         coverage_report_name: Coverage
         coverage_report_title: Algorithm Module Coverage Report
         github_token: ${{ secrets.GITHUB_TOKEN }}

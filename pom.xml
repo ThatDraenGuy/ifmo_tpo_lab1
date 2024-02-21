@@ -12,6 +12,7 @@
         <module>function</module>
         <module>algorithm</module>
         <module>domain</module>
+        <module>aggregate-report</module>
     </modules>
 
     <properties>
