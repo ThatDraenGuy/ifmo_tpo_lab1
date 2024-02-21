@@ -56,4 +56,10 @@ public class HashTableTest {
         assertEquals("Oleg Haha", table.delete(0));
         assertNull(table.get(0));
     }
+
+    @Test
+    public void deleteNonExistentKey() {
+        HashTable<String> table = new HashTable<>(5);
+        assertNull(table.delete(0));
+    }
 }
