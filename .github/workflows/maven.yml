@@ -18,6 +18,7 @@ jobs:
   run-tests:
     permissions: write-all
     runs-on: ubuntu-latest
+    environment: test
 
     steps:
     - uses: actions/checkout@v3
@@ -33,8 +34,8 @@ jobs:
     - name: Deploy coverage report
       uses: jsmrcaga/action-netlify-deploy@master
       with:
-        NETLIFY_AUTH_TOKEN: nfp_D5vL9v492PdjYhMACDZsz364HLtK5oXD64d9
-        NETLIFY_SITE_ID: a44c5e7d-7f60-44b7-b756-b921b9754aa9
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         build_directory: aggregate-report/target/site/jacoco-aggregate
         install_command: "echo Skipping installing the dependencies"
         build_command: "echo Skipping building the web files"
