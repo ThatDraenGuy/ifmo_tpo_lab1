@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>thatdraenguy</groupId>
-    <artifactId>alghoritm</artifactId>
+    <artifactId>algorithm</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 </project>
