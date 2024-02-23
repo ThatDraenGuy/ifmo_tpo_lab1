@@ -45,8 +45,6 @@ public class Arccos {
         double num = isNearZero ? Math.pow(point, 2 * index + 1) : Math.pow(2, -index) * Math.pow(1 - point, index);
         return num * getFactorial(2 * index) /
             ( Math.pow(2, 2 * index) * Math.pow(getFactorial(index), 2) * ( 2 * index + 1 ) );
-        // return getFactorial(2 * index) * Math.pow(2, -index) * Math.pow(1 - point, index) /
-        //     ( Math.pow(2, 2 * index) * Math.pow(getFactorial(index), 2) * ( 2 * index + 1 ) );
     }
 
     private static int getFactorial(int num) {
