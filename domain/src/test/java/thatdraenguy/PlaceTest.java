@@ -16,6 +16,7 @@ public class PlaceTest {
     @Test
     public void itemsTest() {
         Place place = Place.DISTANT_SPACE;
+        place.clear();
         assertEquals("Даль космоса", place.getName());
 
         Balloon.INSTANCE.visit(place, 7);
@@ -35,6 +36,7 @@ public class PlaceTest {
     @Test
     public void marketAnalystKillerTest() {
         Place place = Place.MARKET_ANALYST_KILLER;
+        place.clear();
         assertEquals("Убиватель Олегов Шипулинов", place.getName());
 
         MarketAnalyst shipu = new MarketAnalyst("Олег Шипулин", 3);
@@ -51,6 +53,7 @@ public class PlaceTest {
     @Test
     public void poghrilPlanetTest() {
         Place place = Place.POGHRIL_PLANET;
+        place.clear();
         assertEquals("Планета Погхрил в системе Пансел", place.getName());
 
         FriedEgg.INSTANCE.visit(place, 238000);
